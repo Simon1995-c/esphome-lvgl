@@ -1,22 +1,6 @@
 lvgl:
   buffer_size: 100%
 
-  top_layer:
-    widgets:
-      - label:
-          id: temperatures
-          text: "-° / -°"
-          align: top_left
-          x: 8
-          y: 4
-
-      - label:
-          id: display_time
-          text: "--:--"
-          align: top_mid
-          x: 0
-          y: 4
-
   pages:
     - id: main_page
       layout:
@@ -57,4 +41,4 @@ lvgl:
               - homeassistant.service:
                   service: light.toggle
                   data:
-                    entity_id: light.bar_placeholder
+                    entity_id: light.garage_loftlampe_2
