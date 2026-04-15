@@ -1,6 +1,22 @@
 lvgl:
   buffer_size: 100%
 
+  top_layer:
+    widgets:
+      - label:
+          id: temperatures
+          text: "-° / -°"
+          align: top_left
+          x: 8
+          y: 4
+
+      - label:
+          id: display_time
+          text: "--:--"
+          align: top_mid
+          x: 0
+          y: 4
+
   pages:
     - id: main_page
       layout:
@@ -20,19 +36,30 @@ lvgl:
             id: billard_nav_button
             text: "Billardbord"
             on_click:
-              - lvgl.page.show: billard_page
+              - homeassistant.service:
+                  service: light.toggle
+                  data:
+                    entity_id: light.garage_loftlampe_1
 
         - button:
             id: vaglampe_nav_button
             text: "Væglampe"
             on_click:
-              - lvgl.page.show: vaglampe_page
+              - homeassistant.service:
+                  service: light.toggle
+                  data:
+                    entity_id:
+                      - light.garage_vaeglampe_1
+                      - light.garage_vaeglampe_2
 
         - button:
             id: sofagruppe_nav_button
             text: "Sofagruppe"
             on_click:
-              - lvgl.page.show: sofagruppe_page
+              - homeassistant.service:
+                  service: light.toggle
+                  data:
+                    entity_id: light.garage_loftlampe_3
 
         - button:
             id: bar_toggle_button
