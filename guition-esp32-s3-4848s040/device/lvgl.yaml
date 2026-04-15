@@ -1,5 +1,5 @@
 # =============================================================================
-# LVGL TOUCHSCREEN INTERFACE - FIXED SYNTAX
+# LVGL TOUCHSCREEN INTERFACE - FIXED SERVICE DATA
 # =============================================================================
 
 lvgl:
@@ -51,8 +51,7 @@ lvgl:
             styles: control
             grid_cell_column_pos: 0
             grid_cell_row_pos: 0
-            widgets:
-              - label: {text: "Billardbord", align: center}
+            widgets: [{label: {text: "Billardbord", align: center}}]
             on_click:
               - lvgl.page.show: billard_page
 
@@ -63,8 +62,7 @@ lvgl:
             styles: control
             grid_cell_column_pos: 1
             grid_cell_row_pos: 0
-            widgets:
-              - label: {text: "Væglampe", align: center}
+            widgets: [{label: {text: "Væglampe", align: center}}]
             on_click:
               - lvgl.page.show: vaglampe_page
 
@@ -75,8 +73,7 @@ lvgl:
             styles: control
             grid_cell_column_pos: 0
             grid_cell_row_pos: 1
-            widgets:
-              - label: {text: "Sofagruppe", align: center}
+            widgets: [{label: {text: "Sofagruppe", align: center}}]
             on_click:
               - lvgl.page.show: sofagruppe_page
 
@@ -88,8 +85,7 @@ lvgl:
             styles: control
             grid_cell_column_pos: 1
             grid_cell_row_pos: 1
-            widgets:
-              - label: {text: "Bar", align: center}
+            widgets: [{label: {text: "Bar", align: center}}]
             on_click:
               - homeassistant.service:
                   service: light.toggle
@@ -97,7 +93,7 @@ lvgl:
                     entity_id: light.bar_placeholder
 
     # =========================================================================
-    # PAGE: Billardbord Details
+    # PAGE: Billardbord
     # =========================================================================
     - id: billard_page
       layout: { type: flex, flex_flow: column }
@@ -119,7 +115,9 @@ lvgl:
             on_click:
               - homeassistant.service:
                   service: light.turn_on
-                  data: { entity_id: light.billard_placeholder, brightness_pct: 100 }
+                  data:
+                    entity_id: light.billard_placeholder
+                    brightness_pct: "100"
         - button:
             styles: control
             width: $button_width
@@ -127,7 +125,9 @@ lvgl:
             on_click:
               - homeassistant.service:
                   service: light.turn_on
-                  data: { entity_id: light.billard_placeholder, brightness_pct: 75 }
+                  data:
+                    entity_id: light.billard_placeholder
+                    brightness_pct: "75"
         - button:
             styles: control
             width: $button_width
@@ -135,7 +135,9 @@ lvgl:
             on_click:
               - homeassistant.service:
                   service: light.turn_on
-                  data: { entity_id: light.billard_placeholder, brightness_pct: 50 }
+                  data:
+                    entity_id: light.billard_placeholder
+                    brightness_pct: "50"
         - button:
             styles: control
             width: $button_width
@@ -143,7 +145,9 @@ lvgl:
             on_click:
               - homeassistant.service:
                   service: light.turn_on
-                  data: { entity_id: light.billard_placeholder, brightness_pct: 25 }
+                  data:
+                    entity_id: light.billard_placeholder
+                    brightness_pct: "25"
         - button:
             styles: control
             width: $button_width
@@ -151,10 +155,11 @@ lvgl:
             on_click:
               - homeassistant.service:
                   service: light.turn_off
-                  data: { entity_id: light.billard_placeholder }
+                  data:
+                    entity_id: light.billard_placeholder
 
     # =========================================================================
-    # PAGE: Væglampe Details
+    # PAGE: Væglampe (Same logic as above)
     # =========================================================================
     - id: vaglampe_page
       layout: { type: flex, flex_flow: column }
@@ -169,49 +174,14 @@ lvgl:
             widgets: [{label: {text: "Back", align: center}}]
             on_click:
               - lvgl.page.show: main_page
-        - button:
-            styles: control
-            width: $button_width
-            widgets: [{label: {text: "100%"}}]
-            on_click:
-              - homeassistant.service:
-                  service: light.turn_on
-                  data: { entity_id: light.vaglampe_placeholder, brightness_pct: 100 }
-        - button:
-            styles: control
-            width: $button_width
-            widgets: [{label: {text: "75%"}}]
-            on_click:
-              - homeassistant.service:
-                  service: light.turn_on
-                  data: { entity_id: light.vaglampe_placeholder, brightness_pct: 75 }
-        - button:
-            styles: control
-            width: $button_width
-            widgets: [{label: {text: "50%"}}]
-            on_click:
-              - homeassistant.service:
-                  service: light.turn_on
-                  data: { entity_id: light.vaglampe_placeholder, brightness_pct: 50 }
-        - button:
-            styles: control
-            width: $button_width
-            widgets: [{label: {text: "25%"}}]
-            on_click:
-              - homeassistant.service:
-                  service: light.turn_on
-                  data: { entity_id: light.vaglampe_placeholder, brightness_pct: 25 }
-        - button:
-            styles: control
-            width: $button_width
-            widgets: [{label: {text: "Off"}}]
-            on_click:
-              - homeassistant.service:
-                  service: light.turn_off
-                  data: { entity_id: light.vaglampe_placeholder }
+        - button: { styles: control, width: $button_width, widgets: [{label: {text: "100%"}}], on_click: [- homeassistant.service: { service: light.turn_on, data: { entity_id: light.vaglampe_placeholder, brightness_pct: "100" }}] }
+        - button: { styles: control, width: $button_width, widgets: [{label: {text: "75%"}}], on_click: [- homeassistant.service: { service: light.turn_on, data: { entity_id: light.vaglampe_placeholder, brightness_pct: "75" }}] }
+        - button: { styles: control, width: $button_width, widgets: [{label: {text: "50%"}}], on_click: [- homeassistant.service: { service: light.turn_on, data: { entity_id: light.vaglampe_placeholder, brightness_pct: "50" }}] }
+        - button: { styles: control, width: $button_width, widgets: [{label: {text: "25%"}}], on_click: [- homeassistant.service: { service: light.turn_on, data: { entity_id: light.vaglampe_placeholder, brightness_pct: "25" }}] }
+        - button: { styles: control, width: $button_width, widgets: [{label: {text: "Off"}}], on_click: [- homeassistant.service: { service: light.turn_off, data: { entity_id: light.vaglampe_placeholder }}] }
 
     # =========================================================================
-    # PAGE: Sofagruppe Details
+    # PAGE: Sofagruppe
     # =========================================================================
     - id: sofagruppe_page
       layout: { type: flex, flex_flow: column }
@@ -226,43 +196,8 @@ lvgl:
             widgets: [{label: {text: "Back", align: center}}]
             on_click:
               - lvgl.page.show: main_page
-        - button:
-            styles: control
-            width: $button_width
-            widgets: [{label: {text: "100%"}}]
-            on_click:
-              - homeassistant.service:
-                  service: light.turn_on
-                  data: { entity_id: light.sofagruppe_placeholder, brightness_pct: 100 }
-        - button:
-            styles: control
-            width: $button_width
-            widgets: [{label: {text: "75%"}}]
-            on_click:
-              - homeassistant.service:
-                  service: light.turn_on
-                  data: { entity_id: light.sofagruppe_placeholder, brightness_pct: 75 }
-        - button:
-            styles: control
-            width: $button_width
-            widgets: [{label: {text: "50%"}}]
-            on_click:
-              - homeassistant.service:
-                  service: light.turn_on
-                  data: { entity_id: light.sofagruppe_placeholder, brightness_pct: 50 }
-        - button:
-            styles: control
-            width: $button_width
-            widgets: [{label: {text: "25%"}}]
-            on_click:
-              - homeassistant.service:
-                  service: light.turn_on
-                  data: { entity_id: light.sofagruppe_placeholder, brightness_pct: 25 }
-        - button:
-            styles: control
-            width: $button_width
-            widgets: [{label: {text: "Off"}}]
-            on_click:
-              - homeassistant.service:
-                  service: light.turn_off
-                  data: { entity_id: light.sofagruppe_placeholder }
+        - button: { styles: control, width: $button_width, widgets: [{label: {text: "100%"}}], on_click: [- homeassistant.service: { service: light.turn_on, data: { entity_id: light.sofagruppe_placeholder, brightness_pct: "100" }}] }
+        - button: { styles: control, width: $button_width, widgets: [{label: {text: "75%"}}], on_click: [- homeassistant.service: { service: light.turn_on, data: { entity_id: light.sofagruppe_placeholder, brightness_pct: "75" }}] }
+        - button: { styles: control, width: $button_width, widgets: [{label: {text: "50%"}}], on_click: [- homeassistant.service: { service: light.turn_on, data: { entity_id: light.sofagruppe_placeholder, brightness_pct: "50" }}] }
+        - button: { styles: control, width: $button_width, widgets: [{label: {text: "25%"}}], on_click: [- homeassistant.service: { service: light.turn_on, data: { entity_id: light.sofagruppe_placeholder, brightness_pct: "25" }}] }
+        - button: { styles: control, width: $button_width, widgets: [{label: {text: "Off"}}], on_click: [- homeassistant.service: { service: light.turn_off, data: { entity_id: light.sofagruppe_placeholder }}] }
