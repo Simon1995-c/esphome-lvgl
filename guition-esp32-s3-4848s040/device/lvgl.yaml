@@ -1,6 +1,9 @@
 lvgl:
   buffer_size: 100%
 
+  # =========================================================================
+  # PAGE: Main page
+  # =========================================================================
   pages:
     - id: main_page
       layout:
@@ -52,15 +55,15 @@ lvgl:
             height: $button_height_single
             width: $button_width
             id: sofagruppe_nav_button
-            text: "Sofagruppe"
             styles: control
             grid_cell_column_pos: 0
             grid_cell_row_pos: 1
+            widgets:
+              - label:
+                  align: center
+                  text: "Sofagruppe"
             on_click:
-              - homeassistant.service:
-                  service: light.toggle
-                  data:
-                    entity_id: light.garage_loftlampe_3
+              - lvgl.page.show: sofa_page
         - button:
             height: $button_height_single
             width: $button_width
@@ -74,3 +77,48 @@ lvgl:
                   service: light.toggle
                   data:
                     entity_id: light.garage_loftlampe_2
+    - id: sofa_page
+      layout:
+        type: grid
+        grid_columns: [fr(1), fr(1)]
+        grid_rows: [fr(1)]
+      width: 100%
+      scrollbar_mode: "off"
+      scroll_dir: "hor"
+      bg_color: Black
+      pad_top: 5
+      pad_left: 5
+      pad_right: 5
+      pad_bottom: 5
+
+      widgets:
+        - button:
+            height: $button_height_single
+            width: $button_width
+            id: vaglampe_nav_button
+            text: "Væglamper"
+            styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 0
+            on_click:
+              - homeassistant.service:
+                  service: light.toggle
+                  data:
+                    entity_id: light.garage_vaeglampe_1
+              - homeassistant.service:
+                  service: light.toggle
+                  data:
+                    entity_id: light.garage_vaeglampe_2
+        - button:
+            height: $button_height_single
+            width: $button_width
+            id: sofagruppe_nav_button
+            text: "Sofalampe"
+            styles: control
+            grid_cell_column_pos: 1
+            grid_cell_row_pos: 0
+            on_click:
+              - homeassistant.service:
+                  service: light.toggle
+                  data:
+                    entity_id: light.garage_loftlampe_3
