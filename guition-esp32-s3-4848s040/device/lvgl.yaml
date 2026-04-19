@@ -37,7 +37,7 @@ lvgl:
         - button:
             height: $button_height_single
             width: $button_width
-            id: vaglampe_nav_button
+            id: vaglamper_test_button
             text: "Væglampe"
             styles: control
             grid_cell_column_pos: 1
@@ -95,7 +95,7 @@ lvgl:
         - button:
             height: $button_height_single
             width: $button_width
-            id: vaglampe_nav_button
+            id: vaglampe_button
             text: "Væglamper"
             styles: control
             grid_cell_column_pos: 0
@@ -112,7 +112,7 @@ lvgl:
         - button:
             height: $button_height_single
             width: $button_width
-            id: sofagruppe_nav_button
+            id: sofalampe_button
             text: "Sofalampe"
             styles: control
             grid_cell_column_pos: 1
