@@ -5,8 +5,8 @@ lvgl:
     - id: main_page
       layout:
         type: grid
-        grid_columns: [auto, auto]
-        grid_rows: [auto, auto]
+        grid_columns: [fr(1), fr(1)]
+        grid_rows: [fr(1), fr(1)]
       width: 100%
       scrollbar_mode: "off"
       scroll_dir: "hor"
