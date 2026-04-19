@@ -81,7 +81,7 @@ lvgl:
       layout:
         type: grid
         grid_columns: [fr(1), fr(1)]
-        grid_rows: [fr(1)]
+        grid_rows: [fr(1), fr(1)]
       width: 100%
       scrollbar_mode: "off"
       scroll_dir: "hor"
@@ -92,6 +92,23 @@ lvgl:
       pad_bottom: 5
 
       widgets:
+        - button:
+            height: $button_height_single
+            width: $button_width
+            checkable: false
+            styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 0
+            widgets:
+              - label:
+                  text_font: $icon_font
+                  align: top_left
+                  text: $chevron_left
+              - label:
+                  align: bottom_left
+                  text: "Back"
+            on_click:
+              - lvgl.page.show: main_page
         - button:
             height: $button_height_single
             width: $button_width
