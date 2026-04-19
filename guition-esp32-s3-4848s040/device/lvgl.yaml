@@ -14,8 +14,8 @@ lvgl:
 
       widgets:
         - button:
-            height: 100%
-            width: 100%
+            height: $button_height_single
+            width: $button_width
             id: billard_nav_button
             text: "Billardbord"
             styles: control
@@ -28,8 +28,8 @@ lvgl:
                     entity_id: light.garage_loftlampe_1
 
         - button:
-            height: 100%
-            width: 100%
+            height: $button_height_single
+            width: $button_width
             id: vaglampe_nav_button
             text: "Væglampe"
             styles: control
@@ -45,8 +45,8 @@ lvgl:
                   data:
                     entity_id: light.garage_vaeglampe_2
         - button:
-            height: 100%
-            width: 100%
+            height: $button_height_single
+            width: $button_width
             id: sofagruppe_nav_button
             text: "Sofagruppe"
             styles: control
@@ -58,8 +58,8 @@ lvgl:
                   data:
                     entity_id: light.garage_loftlampe_3
         - button:
-            height: 100%
-            width: 100%
+            height: $button_height_single
+            width: $button_width
             id: bar_toggle_button
             text: "Bar"
             styles: control
