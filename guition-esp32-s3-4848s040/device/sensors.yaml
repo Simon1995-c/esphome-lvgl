@@ -45,11 +45,10 @@ binary_sensor:
     id: vaglampe_2
     entity_id: light.garage_vaeglampe_2
     trigger_on_initial_state: true
-
     on_state:
       then:
         - lvgl.widget.update:
-            id: vaglampe_nav_button
+            id: vaglampe_button
             state:
               checked: !lambda |-
                 return id(vaglampe_1).state || id(vaglampe_2).state;
