@@ -11,6 +11,10 @@ lvgl:
       scrollbar_mode: "off"
       scroll_dir: "hor"
       bg_color: Black
+      pad_top: 5
+      pad_left: 5
+      pad_right: 5
+      pad_bottom: 5
 
       widgets:
         - button:
