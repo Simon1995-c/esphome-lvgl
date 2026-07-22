@@ -23,15 +23,25 @@ binary_sensor:
   # BILLIARDBORD
   # -----------------------------
   - platform: homeassistant
-    id: billard_state
+    id: billard_state_1
     entity_id: light.garage_loftlampe_1
+    trigger_on_initial_state: true
+  - platform: homeassistant
+    id: billard_state_2
+    entity_id: light.garage_loftlampe_2
     trigger_on_initial_state: true
     on_state:
       then:
         - lvgl.widget.update:
             id: billard_toggle
             state:
-              checked: !lambda "return x;"
+              checked: !lambda |-
+                return id(garage_loftlampe_1).state || id(garage_loftlampe_2).state;
+        - lvgl.widget.update:
+            id: billard_100
+            state:
+              checked: !lambda |-
+                return id(garage_loftlampe_1).brightness === "254" && id(garage_loftlampe_2).brightness === "254";
 
   # -----------------------------
   # VÆGLAMPE (2 lights combined)

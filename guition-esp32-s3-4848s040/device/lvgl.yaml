@@ -145,7 +145,7 @@ lvgl:
       layout:
         type: grid
         grid_columns: [fr(1), fr(1), fr(1)]
-        grid_rows: [fr(1), fr(1)]
+        grid_rows: [fr(1), fr(1), fr(1)]
       width: 100%
       scrollbar_mode: "off"
       scroll_dir: "hor"
@@ -156,8 +156,8 @@ lvgl:
       pad_bottom: 5
       widgets:
         - button:
-            height: $button_height_single
-            width: $button_width
+            height: $button_height_small
+            width: $button_width_small
             checkable: false
             styles: control
             grid_cell_column_pos: 0
@@ -170,8 +170,8 @@ lvgl:
             on_click:
               - lvgl.page.show: main_page
         - button:
-            height: $button_height_single
-            width: $button_width
+            height: $button_height_small
+            width: $button_width_small
             id: billard_toggle
             styles: control
             grid_cell_column_pos: 2
