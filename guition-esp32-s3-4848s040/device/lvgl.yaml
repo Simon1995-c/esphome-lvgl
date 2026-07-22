@@ -174,7 +174,7 @@ lvgl:
             width: $button_width_small
             id: billard_toggle
             styles: control
-            grid_cell_column_pos: 2
+            grid_cell_column_pos: 1
             grid_cell_row_pos: 0
             widgets:
               - label:
@@ -194,8 +194,8 @@ lvgl:
             width: $button_width_small
             id: billard_100
             styles: control
-            grid_cell_column_pos: 0
-            grid_cell_row_pos: 1
+            grid_cell_column_pos: 2
+            grid_cell_row_pos: 0
             widgets:
               - label:
                   align: center
@@ -211,6 +211,28 @@ lvgl:
                   data:
                     entity_id: light.garage_loftlampe_2
                     brightness: "254"
+        - button:
+            height: $button_height_small
+            width: $button_width_small
+            id: billard_50
+            styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 1
+            widgets:
+              - label:
+                  align: center
+                  text: "75%"
+            on_click:
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_loftlampe_1
+                    brightness: "191"
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_loftlampe_2
+                    brightness: "191"
         - button:
             height: $button_height_small
             width: $button_width_small
@@ -233,3 +255,25 @@ lvgl:
                   data:
                     entity_id: light.garage_loftlampe_2
                     brightness: "127"
+        - button:
+            height: $button_height_small
+            width: $button_width_small
+            id: billard_50
+            styles: control
+            grid_cell_column_pos: 2
+            grid_cell_row_pos: 1
+            widgets:
+              - label:
+                  align: center
+                  text: "25%"
+            on_click:
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_loftlampe_1
+                    brightness: "63"
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_loftlampe_2
+                    brightness: "63"
