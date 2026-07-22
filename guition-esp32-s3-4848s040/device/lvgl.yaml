@@ -150,10 +150,10 @@ lvgl:
       scrollbar_mode: "off"
       scroll_dir: "hor"
       bg_color: Black
-      pad_top: 5
-      pad_left: 5
-      pad_right: 5
-      pad_bottom: 5
+      pad_top: 10
+      pad_left: 10
+      pad_right: 10
+      pad_bottom: 10
       widgets:
         - button:
             height: $button_height_small
