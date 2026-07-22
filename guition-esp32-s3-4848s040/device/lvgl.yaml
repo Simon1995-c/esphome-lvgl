@@ -64,7 +64,7 @@ lvgl:
             widgets:
               - label:
                   align: center
-                  text: "Sofagruppe"
+                  text: "Sofagruppe >"
             on_click:
               - lvgl.page.show: sofa_page
         - button:
@@ -110,8 +110,8 @@ lvgl:
                   align: top_left
                   text: $chevron_left
               - label:
-                  align: bottom_center
-                  text: "Back"
+                  align: bottom_left
+                  text: "Tilbage"
             on_click:
               - lvgl.page.show: main_page
         - button:
@@ -172,7 +172,7 @@ lvgl:
                   text: $chevron_left
               - label:
                   align: bottom_left
-                  text: "Back"
+                  text: "Tilbage"
             on_click:
               - lvgl.page.show: main_page
         - button:
