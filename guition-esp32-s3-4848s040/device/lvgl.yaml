@@ -47,8 +47,8 @@ lvgl:
             on_click:
               - lvgl.page.show: sofa_page
         - button:
-            height: $button_height
-            width: $button_width
+            height: $button_height_small
+            width: $button_width_small
             id: bar_toggle
             styles: control
             grid_cell_column_pos: 0
@@ -57,6 +57,22 @@ lvgl:
               - label:
                   align: center
                   text: "Bar"
+            on_click:
+              - homeassistant.service:
+                  service: switch.toggle
+                  data:
+                    entity_id: switch.barlys
+        - button:
+            height: $button_height_small
+            width: $button_width_small
+            id: fadol_toggle
+            styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 1
+            widgets:
+              - label:
+                  align: center
+                  text: "Fadølslys"
             on_click:
               - homeassistant.service:
                   service: switch.toggle
