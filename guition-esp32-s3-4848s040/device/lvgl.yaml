@@ -205,9 +205,9 @@ lvgl:
                   service: light.turn_on
                   data:
                     entity_id: light.garage_loftlampe_1
-                    brightness: 254
+                    brightness: "254"
               - homeassistant.service:
                   service: light.turn_on
                   data:
                     entity_id: light.garage_loftlampe_2
-                    brightness: 254
+                    brightness: "254"
