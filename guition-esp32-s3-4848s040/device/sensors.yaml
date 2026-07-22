@@ -10,7 +10,7 @@ binary_sensor:
   # -----------------------------
   - platform: homeassistant
     id: bar_light_state
-    entity_id: light.garage_loftlampe_2
+    entity_id: switch.barlys
     trigger_on_initial_state: true
     on_state:
       then:
@@ -29,7 +29,7 @@ binary_sensor:
     on_state:
       then:
         - lvgl.widget.update:
-            id: billard_nav_button
+            id: billard_toggle
             state:
               checked: !lambda "return x;"
 
