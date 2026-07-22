@@ -30,7 +30,7 @@ lvgl:
             widgets:
               - label:
                   align: center
-                  text: "Billardbord"
+                  text: "Billardbord >"
             on_click:
               - lvgl.page.show: billard_page
 
@@ -110,7 +110,7 @@ lvgl:
                   align: top_left
                   text: $chevron_left
               - label:
-                  align: bottom_left
+                  align: bottom_center
                   text: "Back"
             on_click:
               - lvgl.page.show: main_page
