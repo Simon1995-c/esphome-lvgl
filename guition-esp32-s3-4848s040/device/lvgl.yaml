@@ -47,8 +47,8 @@ lvgl:
             on_click:
               - lvgl.page.show: sofa_page
         - button:
-            height: $button_height_small
-            width: $button_width_small
+            height: $button_height
+            width: $button_width
             id: bar_toggle
             styles: control
             grid_cell_column_pos: 0
@@ -63,8 +63,8 @@ lvgl:
                   data:
                     entity_id: switch.barlys
         - button:
-            height: $button_height_small
-            width: $button_width_small
+            height: $button_height
+            width: $button_width
             id: fadol_toggle
             styles: control
             grid_cell_column_pos: 1
@@ -127,8 +127,8 @@ lvgl:
                   data:
                     entity_id: light.garage_vaeglampe_2
         - button:
-            height: $button_height
-            width: $button_width
+            height: $button_height_small
+            width: $button_width_small
             id: sofalampe_toggle
             widgets:
               - label:
