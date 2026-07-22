@@ -216,7 +216,7 @@ lvgl:
             width: $button_width_small
             id: billard_50
             styles: control
-            grid_cell_column_pos: 0
+            grid_cell_column_pos: 1
             grid_cell_row_pos: 1
             widgets:
               - label:
