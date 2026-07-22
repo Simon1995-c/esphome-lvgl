@@ -43,7 +43,7 @@ lvgl:
             widgets:
               - label:
                   align: center
-                  text: "Sofagruppe >"
+                  text: "Sofa >"
             on_click:
               - lvgl.page.show: sofa_page
         - button:
