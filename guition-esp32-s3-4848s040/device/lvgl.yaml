@@ -107,11 +107,8 @@ lvgl:
             widgets:
               - label:
                   text_font: $icon_font
-                  align: top_left
+                  align: center
                   text: $chevron_left
-              - label:
-                  align: bottom_left
-                  text: "Tilbage"
             on_click:
               - lvgl.page.show: main_page
         - button:
@@ -168,8 +165,8 @@ lvgl:
             widgets:
               - label:
                   text_font: $icon_font
-                  align: top_left
-                  text: $chevron_left + "Tilbage"
+                  align: center
+                  text: $chevron_left
             on_click:
               - lvgl.page.show: main_page
         - button:
