@@ -37,7 +37,7 @@ lvgl:
         - button:
             height: $button_height_single
             width: $button_width
-            id: vaglamper_test_button
+            id: vaglamper_toggle
             styles: control
             grid_cell_column_pos: 1
             grid_cell_row_pos: 0
@@ -70,7 +70,7 @@ lvgl:
         - button:
             height: $button_height_single
             width: $button_width
-            id: bar_toggle_button
+            id: bar_toggle
             styles: control
             grid_cell_column_pos: 1
             grid_cell_row_pos: 1
@@ -80,7 +80,7 @@ lvgl:
                   text: "Bar"
             on_click:
               - homeassistant.service:
-                  service: light.toggle
+                  service: switch.toggle
                   data:
                     entity_id: switch.barlys
     - id: sofa_page
@@ -117,7 +117,7 @@ lvgl:
         - button:
             height: $button_height_single
             width: $button_width
-            id: vaglampe_button
+            id: vaglampe_toggle
             text: "Væglamper"
             styles: control
             grid_cell_column_pos: 1
@@ -134,7 +134,7 @@ lvgl:
         - button:
             height: $button_height_single
             width: $button_width
-            id: sofalampe_button
+            id: sofalampe_toggle
             text: "Sofalampe"
             styles: control
             grid_cell_column_pos: 0
@@ -178,7 +178,7 @@ lvgl:
         - button:
             height: $button_height_single
             width: $button_width
-            id: billard_nav_button
+            id: billard_toggle_button
             styles: control
             grid_cell_column_pos: 1
             grid_cell_row_pos: 0
