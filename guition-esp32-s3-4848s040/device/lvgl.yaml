@@ -147,7 +147,7 @@ lvgl:
     - id: billard_page
       layout:
         type: grid
-        grid_columns: [fr(1), fr(1)]
+        grid_columns: [fr(1), fr(1), fr(1)]
         grid_rows: [fr(1), fr(1)]
       width: 100%
       scrollbar_mode: "off"
@@ -169,10 +169,7 @@ lvgl:
               - label:
                   text_font: $icon_font
                   align: top_left
-                  text: $chevron_left
-              - label:
-                  align: bottom_left
-                  text: "Tilbage"
+                  text: $chevron_left + "Tilbage"
             on_click:
               - lvgl.page.show: main_page
         - button:
@@ -195,3 +192,25 @@ lvgl:
                   service: light.toggle
                   data:
                     entity_id: light.garage_loftlampe_2
+        - button:
+            height: $button_height_single
+            width: $button_width_small
+            id: billard_toggle
+            styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 1
+            widgets:
+              - label:
+                  align: center
+                  text: "100%--"
+            on_click:
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_loftlampe_1
+                    brightness: 254
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_loftlampe_2
+                    brightness: 254
