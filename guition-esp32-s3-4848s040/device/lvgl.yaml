@@ -192,7 +192,7 @@ lvgl:
         - button:
             height: $button_height_single
             width: $button_width_small
-            id: billard_toggle
+            id: billard_100
             styles: control
             grid_cell_column_pos: 0
             grid_cell_row_pos: 1
