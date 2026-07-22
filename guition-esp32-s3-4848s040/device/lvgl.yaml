@@ -211,3 +211,25 @@ lvgl:
                   data:
                     entity_id: light.garage_loftlampe_2
                     brightness: "254"
+        - button:
+            height: $button_height_small
+            width: $button_width_small
+            id: billard_50
+            styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 1
+            widgets:
+              - label:
+                  align: center
+                  text: "50%"
+            on_click:
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_loftlampe_1
+                    brightness: "127"
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_loftlampe_2
+                    brightness: "127"
