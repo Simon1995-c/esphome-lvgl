@@ -21,7 +21,7 @@ lvgl:
 
       widgets:
         - button:
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             id: billard_nav_button
             styles: control
@@ -30,14 +30,70 @@ lvgl:
             widgets:
               - label:
                   align: center
-                  text: "Billardbord >"
+                  text: "Billard >"
             on_click:
               - lvgl.page.show: billard_page
-
         - button:
-            height: $button_height_single
+            height: $button_height
             width: $button_width
-            id: vaglamper_toggle
+            id: sofagruppe_nav_button
+            styles: control
+            grid_cell_column_pos: 1
+            grid_cell_row_pos: 0
+            widgets:
+              - label:
+                  align: center
+                  text: "Sofagruppe >"
+            on_click:
+              - lvgl.page.show: sofa_page
+        - button:
+            height: $button_height
+            width: $button_width
+            id: bar_toggle
+            styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 1
+            widgets:
+              - label:
+                  align: center
+                  text: "Bar"
+            on_click:
+              - homeassistant.service:
+                  service: switch.toggle
+                  data:
+                    entity_id: switch.barlys
+    - id: sofa_page
+      layout:
+        type: grid
+        grid_columns: [fr(1), fr(1), fr(1)]
+        grid_rows: [fr(1), fr(1), fr(1)]
+      width: 100%
+      scrollbar_mode: "off"
+      scroll_dir: "hor"
+      bg_color: Black
+      pad_top: 10
+      pad_left: 10
+      pad_right: 10
+      pad_bottom: 10
+      widgets:
+        - button:
+            height: $button_height_small
+            width: $button_width_small
+            checkable: false
+            styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 0
+            widgets:
+              - label:
+                  text_font: $icon_font
+                  align: center
+                  text: $chevron_left
+            on_click:
+              - lvgl.page.show: main_page
+        - button:
+            height: $button_height_small
+            width: $button_width_small
+            id: vaglampe_toggle
             styles: control
             grid_cell_column_pos: 1
             grid_cell_row_pos: 0
@@ -55,84 +111,13 @@ lvgl:
                   data:
                     entity_id: light.garage_vaeglampe_2
         - button:
-            height: $button_height_single
-            width: $button_width
-            id: sofagruppe_nav_button
-            styles: control
-            grid_cell_column_pos: 0
-            grid_cell_row_pos: 1
-            widgets:
-              - label:
-                  align: center
-                  text: "Sofagruppe >"
-            on_click:
-              - lvgl.page.show: sofa_page
-        - button:
-            height: $button_height_single
-            width: $button_width
-            id: bar_toggle
-            styles: control
-            grid_cell_column_pos: 1
-            grid_cell_row_pos: 1
-            widgets:
-              - label:
-                  align: center
-                  text: "Bar"
-            on_click:
-              - homeassistant.service:
-                  service: switch.toggle
-                  data:
-                    entity_id: switch.barlys
-    - id: sofa_page
-      layout:
-        type: grid
-        grid_columns: [fr(1), fr(1)]
-        grid_rows: [fr(1), fr(1)]
-      width: 100%
-      scrollbar_mode: "off"
-      scroll_dir: "hor"
-      bg_color: Black
-      pad_top: 5
-      pad_left: 5
-      pad_right: 5
-      pad_bottom: 5
-      widgets:
-        - button:
-            height: $button_height_single
-            width: $button_width
-            checkable: false
-            styles: control
-            grid_cell_column_pos: 0
-            grid_cell_row_pos: 0
-            widgets:
-              - label:
-                  text_font: $icon_font
-                  align: center
-                  text: $chevron_left
-            on_click:
-              - lvgl.page.show: main_page
-        - button:
-            height: $button_height_single
-            width: $button_width
-            id: vaglampe_toggle
-            text: "Væglamper"
-            styles: control
-            grid_cell_column_pos: 1
-            grid_cell_row_pos: 0
-            on_click:
-              - homeassistant.service:
-                  service: light.toggle
-                  data:
-                    entity_id: light.garage_vaeglampe_1
-              - homeassistant.service:
-                  service: light.toggle
-                  data:
-                    entity_id: light.garage_vaeglampe_2
-        - button:
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             id: sofalampe_toggle
-            text: "Sofalampe"
+            widgets:
+              - label:
+                  align: center
+                  text: "Sofalampe"
             styles: control
             grid_cell_column_pos: 0
             grid_cell_row_pos: 1
@@ -141,6 +126,114 @@ lvgl:
                   service: light.toggle
                   data:
                     entity_id: light.garage_loftlampe_3
+        - button:
+            height: $button_height_small
+            width: $button_width_small
+            id: sofa_100
+            styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 1
+            widgets:
+              - label:
+                  align: center
+                  text: "100%--"
+            on_click:
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_vaeglampe_1
+                    brightness: "254"
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_vaeglampe_2
+                    brightness: "254"
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_loftlampe_3
+                    brightness: "254"
+        - button:
+            height: $button_height_small
+            width: $button_width_small
+            id: sofa_75
+            styles: control
+            grid_cell_column_pos: 1
+            grid_cell_row_pos: 1
+            widgets:
+              - label:
+                  align: center
+                  text: "75%"
+            on_click:
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_vaeglampe_1
+                    brightness: "191"
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_vaeglampe_2
+                    brightness: "191"
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_loftlampe_3
+                    brightness: "191"
+        - button:
+            height: $button_height_small
+            width: $button_width_small
+            id: sofa_50
+            styles: control
+            grid_cell_column_pos: 2
+            grid_cell_row_pos: 1
+            widgets:
+              - label:
+                  align: center
+                  text: "50%"
+            on_click:
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_vaeglampe_1
+                    brightness: "127"
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_vaeglampe_2
+                    brightness: "127"
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_loftlampe_3
+                    brightness: "127"
+        - button:
+            height: $button_height_small
+            width: $button_width_small
+            id: sofa_25
+            styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 2
+            widgets:
+              - label:
+                  align: center
+                  text: "25%"
+            on_click:
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_vaeglampe_1
+                    brightness: "63"
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_vaeglampe_2
+                    brightness: "63"
+              - homeassistant.service:
+                  service: light.turn_on
+                  data:
+                    entity_id: light.garage_loftlampe_3
+                    brightness: "63"
     - id: billard_page
       layout:
         type: grid
