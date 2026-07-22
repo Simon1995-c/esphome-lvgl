@@ -36,12 +36,12 @@ binary_sensor:
             id: billard_toggle
             state:
               checked: !lambda |-
-                return id(garage_loftlampe_1).state || id(garage_loftlampe_2).state;
+                return id(billard_state_1).state || id(billard_state_2).state;
         - lvgl.widget.update:
             id: billard_100
             state:
               checked: !lambda |-
-                return id(garage_loftlampe_1).brightness === "254" && id(garage_loftlampe_2).brightness === "254";
+                return id(billard_state_1).brightness === "254" && id(billard_state_2).brightness === "254";
 
   # -----------------------------
   # VÆGLAMPE (2 lights combined)
