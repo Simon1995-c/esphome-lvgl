@@ -214,7 +214,7 @@ lvgl:
         - button:
             height: $button_height_small
             width: $button_width_small
-            id: billard_50
+            id: billard_75
             styles: control
             grid_cell_column_pos: 0
             grid_cell_row_pos: 1
@@ -258,7 +258,7 @@ lvgl:
         - button:
             height: $button_height_small
             width: $button_width_small
-            id: billard_50
+            id: billard_25
             styles: control
             grid_cell_column_pos: 2
             grid_cell_row_pos: 1
