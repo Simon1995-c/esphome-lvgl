@@ -81,8 +81,8 @@ lvgl:
             width: $button_width_small
             checkable: false
             styles: control
-            grid_cell_column_pos: 0
             grid_cell_row_pos: 0
+            grid_cell_column_pos: 0
             widgets:
               - label:
                   text_font: $icon_font
@@ -95,8 +95,8 @@ lvgl:
             width: $button_width_small
             id: vaglampe_toggle
             styles: control
-            grid_cell_column_pos: 1
             grid_cell_row_pos: 0
+            grid_cell_column_pos: 1
             widgets:
               - label:
                   align: center
@@ -119,8 +119,8 @@ lvgl:
                   align: center
                   text: "Sofalampe"
             styles: control
-            grid_cell_column_pos: 0
-            grid_cell_row_pos: 1
+            grid_cell_row_pos: 0
+            grid_cell_column_pos: 2
             on_click:
               - homeassistant.service:
                   service: light.toggle
@@ -131,8 +131,8 @@ lvgl:
             width: $button_width_small
             id: sofa_100
             styles: control
-            grid_cell_column_pos: 0
             grid_cell_row_pos: 1
+            grid_cell_column_pos: 0
             widgets:
               - label:
                   align: center
@@ -158,8 +158,8 @@ lvgl:
             width: $button_width_small
             id: sofa_75
             styles: control
-            grid_cell_column_pos: 1
             grid_cell_row_pos: 1
+            grid_cell_column_pos: 1
             widgets:
               - label:
                   align: center
@@ -185,8 +185,8 @@ lvgl:
             width: $button_width_small
             id: sofa_50
             styles: control
-            grid_cell_column_pos: 2
             grid_cell_row_pos: 1
+            grid_cell_column_pos: 2
             widgets:
               - label:
                   align: center
@@ -212,8 +212,8 @@ lvgl:
             width: $button_width_small
             id: sofa_25
             styles: control
-            grid_cell_column_pos: 0
             grid_cell_row_pos: 2
+            grid_cell_column_pos: 0
             widgets:
               - label:
                   align: center
